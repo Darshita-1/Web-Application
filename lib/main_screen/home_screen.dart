@@ -58,79 +58,81 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: Colors.orange,
         toolbarHeight: 25,
       ),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(15.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Text(
-                  timeText + "\n" + dateText,
-                  style: const TextStyle(
-                    fontFamily: AutofillHints.streetAddressLevel1,
-                    fontSize: 15,
-                    //color: Colors.white,
-                    letterSpacing: 2,
-                    fontWeight: FontWeight.bold,
+      body: Container(
+        width: MediaQuery.of(context).size.width * 0.5,
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text(
+                    timeText + "\n" + dateText,
+                    style: const TextStyle(
+                      fontFamily: AutofillHints.streetAddressLevel1,
+                      fontSize: 15,
+                      //color: Colors.white,
+                      letterSpacing: 2,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
-              ],
-            ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset(
-                'Images/icon-food.png',
-                width: MediaQuery.of(context).size.width * 0.15,
-                height: MediaQuery.of(context).size.width * 0.15,
-                fit: BoxFit.cover,
+                ],
               ),
-            ],
-          ),
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Row(
+            ),
+            Flexible(
+              child: Hero(
+                tag: 'logo',
+                child: Container(
+                  width: MediaQuery.of(context).size.width * 0.2,
+                  height: MediaQuery.of(context).size.width * 0.2,
+                  child: Image.asset('images/logo.png'),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  ElevatedButton.icon(
+                    icon: const Icon(
+                      Icons.lock,
+                      color: Colors.black,
+                    ),
+                    label: const Text(
+                      "LOGIN",
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.white,
+                        padding: const EdgeInsets.fromLTRB(70, 20, 70, 20)),
+                    onPressed: () {},
+                  ),
+                ],
+              ),
+            ),
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 ElevatedButton.icon(
                   icon: const Icon(
-                    Icons.lock,
+                    Icons.person,
                     color: Colors.black,
                   ),
                   label: const Text(
-                    "LOGIN",
+                    "REGISTER",
                     style: TextStyle(color: Colors.black),
                   ),
                   style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.white,
-                      padding: const EdgeInsets.fromLTRB(70, 20, 70, 20)),
+                      padding: const EdgeInsets.fromLTRB(60, 20, 60, 20)),
                   onPressed: () {},
                 ),
               ],
             ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              ElevatedButton.icon(
-                icon: const Icon(
-                  Icons.person,
-                  color: Colors.black,
-                ),
-                label: const Text(
-                  "REGISTER",
-                  style: TextStyle(color: Colors.black),
-                ),
-                style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.white,
-                    padding: const EdgeInsets.fromLTRB(60, 20, 60, 20)),
-                onPressed: () {},
-              ),
-            ],
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

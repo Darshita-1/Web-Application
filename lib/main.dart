@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'main_screen/home_screen.dart';
+import 'package:fooddelivery/Authentication/login_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData.dark(),
-      home: const HomeScreen(),
+      home: const LoginScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
